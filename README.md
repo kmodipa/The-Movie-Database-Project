@@ -5,7 +5,7 @@ The-Movie-Database-Project
 
 ![Screenshot 2021-02-16 at 09 18 26](https://user-images.githubusercontent.com/18338191/108030840-88c4a400-7038-11eb-9c24-eb40f2fda288.png)
 
-This is a simple web application that makes use of the The MovieDB API to get and display movies. No complicated functionality here.
+This is a simple web application that makes use of the [The MovieDB API](https://developers.themoviedb.org/3/getting-started/introduction) to get and display movies. No complicated functionality here.
 I will improve the project over time.
 
 #### How to Clone and Run
