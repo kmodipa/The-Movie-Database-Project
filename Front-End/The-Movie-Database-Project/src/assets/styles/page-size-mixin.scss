@@ -1,0 +1,32 @@
+@mixin small-screen{
+    @media (max-width: 1200px) {
+      .flex-container {
+        flex-direction: column;
+        .item-right{
+          width: 50%;
+        }
+        .item-left{
+          width: 50%;
+          padding-right: 20%;
+        }
+      }
+    }
+  }
+  
+  /* Breakpoints */
+  
+  @mixin breakpoints($points) {
+    @if $points == mobile {
+      @media screen and(min-width: 320px) { @content; }
+    }
+    @else if $points == laptop {
+      @media screen and(min-width: 768px) { @content; }
+    }
+    @else if $points == desktop {
+      @media screen and(min-width: 1224px)  { @content; }
+    }
+    @else if $points == largerscreens {
+      @media screen and(min-width: 1824px) { @content; }
+    }
+  }
+  

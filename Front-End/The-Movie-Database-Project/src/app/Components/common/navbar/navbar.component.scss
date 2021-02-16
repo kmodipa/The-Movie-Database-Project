@@ -1,0 +1,206 @@
+@import "src/assets/styles/generic";
+
+header {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  background: $clr-primary;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.button {
+  color: $clr-white;
+  background-color: $clr-seconday;
+}
+
+.company-logo {
+  height: 1.5rem;
+  padding: .6rem;
+  width: auto;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: $clr-primary;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+
+  .nav-icon {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+  //display: none;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: $clr-white;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+/* Hamburger Menu */
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex; // flexbox
+  align-items: center; //vertical
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: $clr-white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+  //display: block;
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+
+.nav-toggle {
+  display: none;
+}
+
+/* Search box styling */
+::placeholder {
+  color: $clr-white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $clr-white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $clr-white;
+}
+
+.search-box {
+  .search {
+    border: none;
+    border-bottom: 1px solid $clr-white;
+    background: transparent;
+    height: 2.5rem;
+    font-size: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-top: .5rem;
+    color: $clr-white;
+  }
+
+  .search:focus {
+    outline: none;
+  }
+
+  .search-button {
+    border: none;
+    border-bottom: 1px solid $clr-white;
+    background: transparent;
+    height: 2.5rem;
+    color: $clr-white;
+    padding-right: 1rem;
+    margin-top: .5rem;
+  }
+
+  .search-button:focus {
+    outline: none;
+  }
+
+  .search-button:hover {
+    cursor: pointer;
+  }
+}
+
+/* Bigger Screens */
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+  }
+
+  .logo {
+    grid-columns: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 3rem;
+    height: inherit;
+  }
+
+  nav {
+    all: unset; // remove all the styles already set before
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 3rem;
+  }
+
+  .search-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.hide-search-box {
+  display: none;
+}

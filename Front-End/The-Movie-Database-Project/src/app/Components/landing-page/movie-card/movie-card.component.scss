@@ -1,0 +1,73 @@
+@import "src/assets/styles/generic";
+
+.card {
+    width: 100%;
+    margin: 0 0 20px;
+    background: $clr-white;
+    overflow: hidden;
+    break-inside: avoid;
+    box-shadow: 0px 5px 9px 2px rgba($clr-gray, 0.5);
+    border-radius: .3rem;
+
+    img {
+        // height: 22rem;
+        width: 100%;
+    }
+  
+    hr {
+      box-sizing: content-box;
+      height: 0;
+      overflow: visible;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 0;
+      border-top: 1px solid rgba(0,0,0,.1);
+    }
+  
+    .info {
+      padding: 0rem 1.5rem 3rem 1.5rem;
+      line-height: 1.5;
+  
+      .card-header {
+        margin-bottom: .75rem;
+        font-size: 14px;
+      }
+  
+      .card-content {
+        margin: 2rem 0;
+        font-size: 13px;
+        color: $clr-gray;
+        font-weight: 400;
+      }
+  
+      .card-buttons-group {
+        display: flex;
+        justify-content: space-between;
+  
+        .application-closed {
+          background-color: $clr-gray;
+          border: none;
+          color: $clr-white;
+          text-align: center;
+          text-decoration: none;
+          font-size: 11px;
+          padding: .7rem 1rem;
+          font-weight: 400;
+          pointer-events: none;
+        }
+  
+        .add-to-favourites {
+          background-color: white;
+          color: $clr-primary;
+          border: 1px solid $clr-primary;
+          padding: .5rem 1rem;
+          margin-top: .5rem;
+        }
+  
+        .add-to-favourites:hover {
+          background: $clr-primary;
+          color: $clr-white;
+        }
+      }
+    }
+  }

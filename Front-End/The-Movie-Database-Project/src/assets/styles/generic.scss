@@ -1,0 +1,98 @@
+$clr-primary: #0d253f;
+$clr-seconday: #01b4e4;
+$clr-white: #fff;
+$clr-gray: grey;
+$clr-page-general-text-color: #8E879D;
+
+.main-container {
+    margin: 79px auto;
+    line-height: 1.5;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+    width: auto;
+  }
+
+.button {
+    background-color: $clr-gray;
+    border-radius: .3rem;
+    border: 1px solid transparent;
+    color: $clr-white;
+    padding: 12px 29px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.curved-button {
+    border-radius: 2rem;
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.button::-moz-focus-inner {
+    border: 0;
+}
+
+  /*------Dropdown menu-------*/
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    width: 200px;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: max-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    transform: translate(-100px, 36px) !important;
+  }
+
+  .dropdown-content a {
+    color: $clr-page-general-text-color;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  /*------Dropdown menu Ends-------*/
+
+
+footer {
+    background-color: $clr-white;
+    margin-top: auto;
+  
+    .moviedb-logo {
+      padding: 10px;
+      box-shadow: 0 -2px 9px 2px rgba($clr-gray,.5);
+  
+      a {
+        text-decoration: none;
+  
+        img {
+          display: block;
+          margin: auto;
+        }
+      }
+    }
+  }
