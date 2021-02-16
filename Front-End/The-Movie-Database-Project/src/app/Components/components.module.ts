@@ -6,8 +6,9 @@ import { MoviesComponent } from './movies/movies.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MovieCardComponent } from './landing-page/movie-card/movie-card.component';
+import {ModalModule} from './_modal';
 
 /* custom components */
 export const components = [
@@ -20,14 +21,16 @@ export const components = [
 ];
 
 @NgModule({
-  declarations: [components, ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule
-  ], exports: [components]
+  declarations: [components],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        ModalModule,
+        ReactiveFormsModule
+    ], exports: [components]
 })
-export class ComponentsModule { 
+export class ComponentsModule {
   constructor() {
   }
 }

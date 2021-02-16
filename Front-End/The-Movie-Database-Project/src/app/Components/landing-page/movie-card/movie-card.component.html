@@ -1,5 +1,5 @@
 <div class="card">
-    <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="">
+    <a (click)="modalService.open('movie-details' + movieIndex)"><img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt=""></a>
     <div class="info">
         <div class="card-header">
             {{movie.title}}
@@ -13,3 +13,28 @@
         </div>
     </div>
 </div>
+
+<jw-modal id="movie-details{{movieIndex}}">
+  <div class="header-row">
+    <div class="header">
+      {{movie.title}}
+    </div>
+    <button class="close" (click)="modalService.close('movie-details' + movieIndex)">
+      <img src="../../../../assets/icons/close.svg" alt="">
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="movie-deails-body">
+      <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="">
+      <hr>
+      <h3>Overview</h3>
+      <small>{{movie.overview}}</small>
+    </div>
+    <br>
+  </div>
+  <div class="modal-body">
+    <div class="bottom-buttons">
+      <button type="button" class="button close-button" (click)="onOut()">Close</button>
+    </div>
+  </div>
+</jw-modal>
