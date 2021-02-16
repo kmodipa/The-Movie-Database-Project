@@ -13,9 +13,10 @@ I will improve the project over time.
 - The 1st thing to do was to request an API key from [The MovieDB API](https://developers.themoviedb.org/3/getting-started/introduction) to make sure I have access to fetch the movie list.
 - Before fetching the movie list, create a navbar with a search-box, login-button, contact-us button, home button.
 - Fecth the movie list and display it to the landing page, 9 items per page.
+- Create a modal for showing movie details
 - Create a separate contact-us page to display my details.
 - Create a separate favourite-list page to display my movie favourites.
-- create a login dialog for the user.
+- create a login modal for the user.
 - Create 'Add to Favourites' button.
 - Create a Nodejs + expressjs server.
 - Configure MySQL database locally and link it to the node + express application. 
