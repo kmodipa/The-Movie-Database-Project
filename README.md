@@ -22,7 +22,7 @@ I will improve the project over time.
 - Add movie-favourites endpoints/controller.
 
 #### Tech stack and why the choice
-- `Angular` with `typescript` -> currently I am way familiar with Angular than the other js front-end clients frameworks and libraries.
+- `Angular` with `typescript` -> currently I am way familiar with Angular than the other js front-end client frameworks and libraries.
 - `SCSS` -> scss offers way more features to work with compare to the plain CSS 💅
 - `Nodejs` with `express` -> Node is just that good and this was also an up-skilling project for me interms of Nodejs.
 - `MySQL` -> rational DB's make's it easry to store and organize data, at least for me 😅
