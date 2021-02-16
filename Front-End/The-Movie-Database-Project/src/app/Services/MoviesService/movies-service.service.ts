@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { MovieModel } from 'src/app/Core/Models/Movie.Model';
+import { RawMovieModel } from 'src/app/Core/Models/RawMovieModel';
 import {environment} from '../../../environments/environment';
 
 @Injectable({
@@ -17,23 +17,27 @@ export class MoviesServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /* Observable<MovieModel[]> failed :(*/
-  GetPopularMovies(): Observable<any> {
-    return this.httpClient.get(`${this.moviesEndpoint}popular?api_key=${this.api_key}&language=${this.language}`)
-    .pipe(map(data => {
-      console.log(data.results)
-      return data.results;
-    }),
-    catchError(error => {
-      return Observable.throw('Something went wrong ;)');
-    }));
+  /* Observable<RawMovieModel[]> failed :(*/
+  // GetPopularMovies(): Observable<any> {
+  //   return this.httpClient.get(`${this.moviesEndpoint}popular?api_key=${this.api_key}&language=${this.language}`)
+  //   .pipe(map(data => {
+  //     console.log(data);
+  //     return data;
+  //   }),
+  //   catchError(error => {
+  //     return Observable.throw('Something went wrong ;)');
+  //   }));
+  // }
+
+  GetPopularMovies(): Observable<RawMovieModel> {
+    return this.httpClient.get<RawMovieModel>(`${this.moviesEndpoint}popular?api_key=${this.api_key}&language=${this.language}`);
   }
 
   SearchMovies(query: string): Observable<string> {
     return this.httpClient.get<string>(`${this.moviesSearchEndpoint}?api_key=${this.api_key}&language=${this.language}&query=${query}`);
   }
 
-  GetMovieDetails(id: number): Observable<MovieModel> {
-    return this.httpClient.get<MovieModel>(`${this.moviesEndpoint}${id}?api_key=${this.api_key}&language=${this.language}`);
+  GetMovieDetails(id: number): Observable<RawMovieModel> {
+    return this.httpClient.get<RawMovieModel>(`${this.moviesEndpoint}${id}?api_key=${this.api_key}&language=${this.language}`);
   }
 }
