@@ -1,0 +1,53 @@
+﻿@import "src/assets/styles/generic";
+/* MODAL STYLES
+-------------------------------*/
+jw-modal {
+    /* modals are hidden by default */
+    display: none;
+
+    .jw-modal {
+        /* modal container fixed across whole screen */
+
+        max-width: 700px;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        /* z-index must be higher than .jw-modal-background */
+        z-index: 1000;
+
+        /* enables scrolling for tall modals */
+        overflow: auto;
+
+        .jw-modal-body {
+            padding: 20px;
+            background: $clr-white;
+            border-radius: 1rem;
+        }
+    }
+
+    .jw-modal-background {
+        /* modal background fixed across whole screen */
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        /* semi-transparent black  */
+        background: rgba(0, 0, 0, 0.5);
+
+        /* z-index must be below .jw-modal and above everything else  */
+        z-index: 900;
+    }
+}
+
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
