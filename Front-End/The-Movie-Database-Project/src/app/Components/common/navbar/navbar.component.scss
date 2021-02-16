@@ -13,6 +13,7 @@ header {
 }
 
 .button {
+  padding: .5rem;
   color: $clr-white;
   background-color: $clr-seconday;
 }
@@ -46,10 +47,15 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
 }
 
 nav li {
   margin-bottom: 1em;
+  margin-top: 1em;
   margin-left: 1em;
 }
 
@@ -203,4 +209,49 @@ nav a {
 
 .hide-search-box {
   display: none;
+}
+
+/* Modal */
+
+.modal-body {
+  color: $clr-page-general-text-color;
+  font-weight: 200;
+  padding: 1rem;
+  width: 100%;
+
+  .button {
+    background: $clr-seconday;
+    margin-left: 0;
+  }
+
+  .button:hover {
+    background: $clr-seconday-hover;
+  }
+
+  form {
+    box-sizing: border-box;
+
+    .form-group {
+      display: block;
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        padding-bottom: .5rem;
+      }
+
+      input[type=text], select {
+        color: $clr-page-general-text-color;
+        font-size: 1rem;
+        width: 20rem;
+        opacity: 1 !important;
+        z-index: 0;
+        height: 2rem;
+        box-sizing: border-box;
+        border-radius: 0;
+        border-style: solid;
+        border-width: 1px;
+      }
+    }
+  }
 }

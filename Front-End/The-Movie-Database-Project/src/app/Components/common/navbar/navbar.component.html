@@ -3,26 +3,58 @@
     <a href="#" class="logo">
       <img class="company-logo" src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="">
     </a>
-  
+
     <input type="checkbox" class="nav-toggle" id="nav-toggle">
-  
+
     <div class="search-box" [class.hide-search-box]="activatedRoute.snapshot.url[0].path !== 'landing-page'">
       <input type="search" [(ngModel)]="searchValue" placeholder="Search" aria-label="Search" class="search">
       <button class="search-button" (click)="search(searchValue)" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </div>
-  
+
     <nav>
       <ul>
         <li></li>
+        <li>
+          <button type="button" (click)="goToContact()" class="button" >Contact-Us</button>
+        </li>
         <li *ngIf="isLogIn">
-          <button type="button" (click)="logIn()" class="button" >login</button>
+          <button type="button" (click)="modalService.open('login')" class="button" >login</button>
         </li>
       </ul>
-  
+
     </nav>
-  
+
     <label for="nav-toggle" class="nav-toggle-label">
       <span></span>
     </label>
-  
-  </header>
+
+</header>
+
+/* Login Modal */
+
+<jw-modal id="login">
+  <div class="header-row">
+    <div class="header">
+      Login
+    </div>
+    <button class="close" (click)="modalService.close('login')">
+      <img src="../../../../assets/icons/close.svg" alt="">
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="stageForm" >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password" formControlName="password">
+      </div>
+      <br>
+      <button class="button" (click)="logIn()">
+        Login
+      </button>
+    </form>
+  </div>
+</jw-modal>
