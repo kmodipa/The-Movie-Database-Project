@@ -1,0 +1,71 @@
+@import "src/assets/styles/generic";
+
+.main-container {
+  margin: 0;
+}
+
+.background-canvas {
+
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: 30%;
+
+  /* z-index must be higher than .jw-modal-background */
+  z-index: 1000;
+
+  /* enables scrolling for tall modals */
+  overflow: auto;
+
+  .card {
+    padding: 20px;
+    background: $clr-white;
+    border-radius: 1rem;
+    width: 30rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    .title {
+      text-align: center;
+      color: $clr-page-general-text-color;
+      border-bottom: 1px solid $clr-page-general-text-color;
+      padding: 1rem 0;
+      font-size: 2rem;
+    }
+    .main-section {
+      display: flex;
+      justify-content: flex-start;
+      padding-top: .5rem;
+
+      .left-inner {
+        text-align: center;
+        //padding-right: .5rem;
+        padding: 1rem;
+        img {
+          //height: 50px;
+          width: 100px;
+        }
+
+        .name {
+          color: $clr-page-general-text-color;
+        }
+
+        button {
+          color: $clr-white;
+          background: $clr-primary;
+          font-weight: 300;
+          font-size: .9rem;
+          padding: 8px 32px;
+        }
+      }
+
+      .right-inner {
+        color: $clr-page-general-text-color;
+        padding: 1rem;
+        font-weight: 300;
+        font-size: .9rem;
+      }
+    }
+  }
+}
