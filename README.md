@@ -14,6 +14,7 @@ I will improve the project over time.
 - Before fetching the movie list, create a navbar with a search-box, login-button, contact-us button, home button.
 - Fecth the movie list and display it to the landing page, 9 items per page.
 - Create a separate contact-us page to display my details.
+- Create a separate favourite-list page to display my movie favourites.
 - create a login dialog for the user.
 - Create 'Add to Favourites' button.
 - Create a Nodejs + expressjs server.
