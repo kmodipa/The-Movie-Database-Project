@@ -1,1 +1,32 @@
-<p>login works!</p>
+<jw-modal id="login">
+  <div class="header-row">
+    <div class="header">
+      Login
+    </div>
+    <button class="close" (click)="modalService.close('login')">
+      <img src="../../../../assets/icons/close.svg" alt="">
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="stageForm" >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password" formControlName="password">
+      </div>
+      <br>
+      <button class="button" (click)="login()">
+        Login
+      </button>
+    </form>
+    <div class="bottom-message">
+      Don't have an Account? <a (click)="openRegister()">Create One</a>
+    </div>
+  </div>
+</jw-modal>
+
+<!-- Register Model -->
+<app-register></app-register>
