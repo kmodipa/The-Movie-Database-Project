@@ -1,0 +1,33 @@
+<jw-modal id="register">
+  <div class="header-row">
+    <div class="header">
+      Register
+    </div>
+    <button class="close" (click)="modalService.close('register')">
+      <img src="../../../../assets/icons/close.svg" alt="">
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="registerForm" >
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" id="username" name="username" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password" formControlName="password">
+      </div>
+      <br>
+      <button class="button" (click)="register()">
+        Register
+      </button>
+    </form>
+    <div class="bottom-message">
+      Already have an Account? <a (click)="openLogin()">Login</a>
+    </div>
+  </div>
+</jw-modal>
