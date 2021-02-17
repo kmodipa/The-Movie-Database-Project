@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MovieCardComponent } from './landing-page/movie-card/movie-card.component';
 import {ModalModule} from './_modal';
+import { RegisterComponent } from './accounts/register/register.component';
+import { MovieFavoritesComponent } from './movie-favorites/movie-favorites.component';
 
 /* custom components */
 export const components = [
@@ -17,7 +19,9 @@ export const components = [
   NavbarComponent,
   MoviesComponent,
   LandingPageComponent,
-  MovieCardComponent
+  MovieCardComponent,
+  RegisterComponent,
+  MovieFavoritesComponent
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 $clr-primary: #0d253f;
-$clr-seconday: #01b4e4;
+$clr-seconday: #20B9D6;
 $clr-white: #fff;
 $clr-gray: grey;
 $clr-page-general-text-color: #8E879D;
@@ -71,6 +71,60 @@ $clr-seconday-hover: #96f3ff;
     }
   }
 }
+
+/* Full Modal */
+
+.modal-body {
+  color: $clr-page-general-text-color;
+  font-weight: 200;
+  padding: 1rem;
+  width: 100%;
+
+  .button {
+    background: $clr-seconday;
+    margin-left: 0;
+  }
+
+  .button:hover {
+    background: $clr-seconday-hover;
+  }
+
+  form {
+    box-sizing: border-box;
+
+    .form-group {
+      display: block;
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        padding-bottom: .5rem;
+      }
+
+      input[type=text], select {
+        color: $clr-page-general-text-color;
+        font-size: 1rem;
+        width: 20rem;
+        opacity: 1 !important;
+        z-index: 0;
+        height: 2rem;
+        box-sizing: border-box;
+        border-radius: 0;
+        border-style: solid;
+        border-width: 1px;
+      }
+    }
+  }
+
+  .bottom-message {
+    padding-top: 1rem;
+
+    a  {
+      color: $clr-seconday;
+    }
+  }
+}
+
 
 
 footer {
