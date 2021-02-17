@@ -10,10 +10,15 @@
     border-radius: .3rem;
     color:  $clr-page-general-text-color;
 
-    img {
+    a {
+      cursor: pointer;
+
+      img {
         // height: 22rem;
         width: 100%;
+      }
     }
+
 
     hr {
       box-sizing: content-box;

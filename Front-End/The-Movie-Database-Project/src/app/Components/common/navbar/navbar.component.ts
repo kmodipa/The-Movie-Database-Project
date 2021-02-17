@@ -36,8 +36,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['contact-us']);
   }
 
-  logOut(): void {
-
+  goToFavorites(): void {
+    this.router.navigate(['favorites']);
   }
 
   initiateForm(): void {

@@ -1,0 +1,23 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "login system for the movieDB project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "dotenv": "8.2.0",
+    "express": "*",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "*",
+    "sequelize": "*",
+    "sequelize-cli": "^6.2.0"
+  },
+  "author": "Khomotjo Modipa",
+  "license": "ISC"
+}
