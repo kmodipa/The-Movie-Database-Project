@@ -13,7 +13,9 @@
 
     <nav>
       <ul>
-        <li></li>
+        <li>
+          <button type="button" (click)="goToFavorites()" class="button" >Favorites</button>
+        </li>
         <li>
           <button type="button" (click)="goToContact()" class="button" >Contact-Us</button>
         </li>
@@ -31,30 +33,4 @@
 </header>
 
 /* Login Modal */
-
-<jw-modal id="login">
-  <div class="header-row">
-    <div class="header">
-      Login
-    </div>
-    <button class="close" (click)="modalService.close('login')">
-      <img src="../../../../assets/icons/close.svg" alt="">
-    </button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="stageForm" >
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" formControlName="username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="text" id="password" name="password" formControlName="password">
-      </div>
-      <br>
-      <button class="button" (click)="logIn()">
-        Login
-      </button>
-    </form>
-  </div>
-</jw-modal>
+<app-login></app-login>
