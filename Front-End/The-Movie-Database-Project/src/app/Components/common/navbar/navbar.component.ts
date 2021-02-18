@@ -10,7 +10,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
 
-  isLogIn: boolean;
+  isLoggedIn: boolean;
   searchValue: any;
   stageForm: FormGroup;
 
@@ -20,7 +20,13 @@ export class NavbarComponent implements OnInit {
               public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.isLogIn = true;
+
+    if (localStorage.getItem('currentUser')) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
+
     this.initiateForm();
   }
 
@@ -28,8 +34,10 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  onOut(): void {
-    this.modalService.close('login');
+  logOut(): void {
+    console.log('logout');
+    this.isLoggedIn = false;
+    localStorage.removeItem('currentUser');
   }
 
   goToContact(): void {
@@ -38,6 +46,7 @@ export class NavbarComponent implements OnInit {
 
   goToFavorites(): void {
     this.router.navigate(['favorites']);
+    console.log(localStorage.getItem('currentUser'));
   }
 
   initiateForm(): void {

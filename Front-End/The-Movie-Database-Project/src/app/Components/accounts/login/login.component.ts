@@ -4,7 +4,6 @@ import {UserModel} from '../../../Core/Models/UserModel';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ModalService} from '../../_modal';
-import {response} from 'express';
 
 @Component({
   selector: 'app-login',
@@ -26,29 +25,41 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.userModel = new UserModel();
-    this.userModel.email = 'jointheteam@aglet.co.za';
-    this.userModel.username = 'jointheteam';
-    this.userModel.password = '@TeamAglet';
+    // this.userModel.email = 'jointheteam@aglet.co.za';
+    // this.userModel.username = 'jointheteam';
+    // this.userModel.password = '@TeamAglet';
 
     this.initiateForm();
 
     this.isLoggedIn = false;
-    // this.login();
   }
 
   initiateForm(): void {
     this.stageForm = this.formBuilder.group({
-      username: '',
+      email: '',
       password: ''
     });
   }
 
   login(): void {
-    this.accountsService.Login(this.userModel).subscribe(response => {
-      console.log(response);
-      if (response) {
+    this.accountsService.Login(this.userModel).subscribe(res => {
+      console.log(res);
+      if (res) {
         this.isLoggedIn = true;
+        localStorage.setItem('userToken', JSON.stringify(res.token));
+        this.getProfile();
+        window.location.reload(); /* I know it's illegal */
       }
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getProfile(): void {
+    const token = localStorage.getItem('userToken');
+    this.accountsService.getUserProfile(token).subscribe(res => {
+      console.log(res);
+      localStorage.setItem('currentUser', res.data.name);
     }, error => {
       console.log(error);
     });

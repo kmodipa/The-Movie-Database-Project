@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserModel} from '../../Core/Models/UserModel';
 import {UserAuthModel} from '../../Core/Models/UserAuthModel';
@@ -23,7 +23,12 @@ export class AccountsServiceService {
     return this.httpClient.post<UserAuthModel>(`${this.accountsEndpoint}register`, userModel);
   }
 
-  getUserProfile(bearerToke: string): Observable<ProfileResponseModel> {
-    return this.httpClient.get<ProfileResponseModel>(`${this.accountsEndpoint}profile?token=${bearerToke}`);
+  getUserProfile(bearerToken: string): Observable<ProfileResponseModel> {
+    return this.httpClient.get<ProfileResponseModel>(`${this.accountsEndpoint}profile`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + bearerToken,
+      })
+    });
   }
 }
