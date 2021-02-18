@@ -42,5 +42,6 @@ I will improve the project over time.
 #### (Front-End)
 
 - Navigate to the back-end directory`The-Movie-Database-Project/Back-End/`.
+- Also don't forget to run `npm install` to install the packages 📦  that are required to run the application.
 - Run `nodemon start` to lauch the application, the application url is `http://localhost:3000`.
 
