@@ -30,9 +30,17 @@ I will improve the project over time.
 - `MySQL` -> rational DB's make's it easry to store and organize data, at least for me 😅
 
 #### How to Clone and Run
+
+###(Front-End)
 - Firstly you will need to clone the project :point_right: `git clone https://github.com/kmodipa/The-Movie-Database-Project.git`.
 - Secondly open your iTerm or terminal and navigate to `The-Movie-Database-Project/Front-End/The-Movie-Database-Project/`.
 - Thirdly run the command `npm install` to install the packages 📦  that are required to run the application.
 - and then run `ng serve --port 4200` to launch the application.
 - Now open your browser and got to `http://localhost:4200/` to view.
 - That's all 💁.
+
+###(Front-End)
+
+- Navigate to the back-end directory`The-Movie-Database-Project/Back-End/`.
+- Run `nodemon start` to lauch the application, the application url is `http://localhost:3000`.
+
