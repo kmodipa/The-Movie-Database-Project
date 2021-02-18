@@ -8,7 +8,7 @@ The-Movie-Database-Project
 This is a simple web application that makes use of the [The MovieDB API](https://developers.themoviedb.org/3/getting-started/introduction) to get and display movies. No complicated functionality here.
 I will improve the project over time.
 
-#### The break down
+## The break down
 - The Project is in two parts for separation of concerns, the Angular client and the nodejs backend
 - The 1st thing to do was to request an API key from [The MovieDB API](https://developers.themoviedb.org/3/getting-started/introduction) to make sure I have access to fetch the movie list.
 - Before fetching the movie list, create a navbar with a search-box, login-button, contact-us button, home button.
@@ -23,15 +23,15 @@ I will improve the project over time.
 - Add login endpoints/controller.
 - Add movie-favourites endpoints/controller.
 
-#### Tech stack and why the choice
+## Tech stack and why the choice
 - `Angular` with `typescript` -> currently I am way familiar with Angular than the other js front-end client frameworks and libraries.
 - `SCSS` -> scss offers way more features to work with compare to the plain CSS 💅
 - `Nodejs` with `express` -> Node is just that good and this was also an up-skilling project for me interms of Nodejs.
 - `MySQL` -> rational DB's make's it easry to store and organize data, at least for me 😅
 
-#### How to Clone and Run
+## How to Clone and Run
 
-#####(Front-End)
+####(Front-End)
 - Firstly you will need to clone the project :point_right: `git clone https://github.com/kmodipa/The-Movie-Database-Project.git`.
 - Secondly open your iTerm or terminal and navigate to `The-Movie-Database-Project/Front-End/The-Movie-Database-Project/`.
 - Thirdly run the command `npm install` to install the packages 📦  that are required to run the application.
@@ -39,7 +39,7 @@ I will improve the project over time.
 - Now open your browser and got to `http://localhost:4200/` to view.
 - That's all 💁.
 
-#####(Front-End)
+####(Front-End)
 
 - Navigate to the back-end directory`The-Movie-Database-Project/Back-End/`.
 - Run `nodemon start` to lauch the application, the application url is `http://localhost:3000`.
