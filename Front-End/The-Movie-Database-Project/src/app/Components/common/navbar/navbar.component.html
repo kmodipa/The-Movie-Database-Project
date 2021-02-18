@@ -20,7 +20,7 @@
           <button type="button" (click)="goToContact()" class="button" >Contact-Us</button>
         </li>
         <li *ngIf="isLoggedIn">
-          <button type="button" (click)="logOut()" class="button" >logOut</button>
+          <button type="button" (click)="logOut()" class="button" >logOut - {{user}}</button>
         </li>
         <li *ngIf="!isLoggedIn">
           <button type="button" (click)="modalService.open('login')" class="button" >login</button>

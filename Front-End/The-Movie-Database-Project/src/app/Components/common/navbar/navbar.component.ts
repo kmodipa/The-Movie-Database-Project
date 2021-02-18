@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn: boolean;
   searchValue: any;
   stageForm: FormGroup;
+  user: string;
 
   constructor(private router: Router,
               public activatedRoute: ActivatedRoute,
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
 
     if (localStorage.getItem('currentUser')) {
       this.isLoggedIn = true;
+      this.user = localStorage.getItem('currentUser');
     } else {
       this.isLoggedIn = false;
     }

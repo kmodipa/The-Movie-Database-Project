@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.accountsService.Login(this.userModel).subscribe(res => {
       console.log(res);
-      if (res) {
+      if (res.status === 200) {
         this.isLoggedIn = true;
         localStorage.setItem('userToken', JSON.stringify(res.token));
         this.getProfile();
