@@ -16,6 +16,11 @@ export class MovieFavoritesComponent implements OnInit {
   favouriteMoviesIds: FavoriteMoviesResponseModel;
   movieIds = [];
 
+  /* pagination */
+  config: any;
+  term: any;
+  removePagination = true;
+
   constructor(private moviesService: MoviesServiceService) { }
 
   ngOnInit(): void {
@@ -31,6 +36,16 @@ export class MovieFavoritesComponent implements OnInit {
   fetchMovieDetails(movieId: number): void {
     this.moviesService.GetMovieDetails(movieId).subscribe( res => {
       this.movies.push(res);
+
+      this.config = {
+        itemsPerPage: 9,
+        currentPage: 1,
+        totalItems: this.movies.length
+      };
+
+      if (this.movies.length >= 5) {
+        this.removePagination = false;
+      }
     });
 
     console.log(this.movies);
@@ -55,5 +70,9 @@ export class MovieFavoritesComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  pageChanged(event): void {
+    this.config.currentPage = event;
   }
 }

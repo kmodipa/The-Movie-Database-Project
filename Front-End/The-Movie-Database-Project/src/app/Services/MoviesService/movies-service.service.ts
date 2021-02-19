@@ -14,6 +14,7 @@ export class MoviesServiceService {
 
   moviesEndpoint = `${environment.theMovieDbUrl}/`;
   moviesSearchEndpoint = `${environment.theMovieDbSearchUrl}/`;
+  theMovieDbPopularMovies = `${environment.theMovieDbPopularMovies}/`;
   backEndApi = `${environment.backEndApi}/movie`;
   apiKey = environment.theMovieDbApiKey;
   language = environment.language;
@@ -21,7 +22,7 @@ export class MoviesServiceService {
   constructor(private httpClient: HttpClient) { }
 
   GetPopularMovies(): Observable<RawMovieModel> {
-    return this.httpClient.get<RawMovieModel>(`${this.moviesEndpoint}popular?api_key=${this.apiKey}&language=${this.language}`);
+    return this.httpClient.get<RawMovieModel>(`${this.theMovieDbPopularMovies}?api_key=${this.apiKey}&language=${this.language}`);
   }
 
   SearchMovies(query: string): Observable<string> {

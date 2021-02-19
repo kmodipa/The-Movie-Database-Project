@@ -17,6 +17,11 @@ export class LandingPageComponent implements OnInit {
   isLiked: boolean;
   movieIds = [];
 
+  /* pagination */
+  config: any;
+  term: any;
+  removePagination = true;
+
   constructor(private moviesService: MoviesServiceService) { }
 
   ngOnInit(): void {
@@ -36,6 +41,16 @@ export class LandingPageComponent implements OnInit {
       console.log(response);
       this.rawMovies = response;
       this.movies = this.rawMovies.results;
+
+      this.config = {
+        itemsPerPage: 9,
+        currentPage: 1,
+        totalItems: this.movies.length
+      };
+
+      if (this.movies.length >= 5) {
+        this.removePagination = false;
+      }
       console.log(this.movies);
     });
   }
@@ -65,6 +80,10 @@ export class LandingPageComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  pageChanged(event): void {
+    this.config.currentPage = event;
   }
 
 }

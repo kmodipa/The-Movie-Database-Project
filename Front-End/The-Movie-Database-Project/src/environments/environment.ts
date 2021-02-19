@@ -8,6 +8,7 @@ export const environment = {
   secret: 'secret',
   backEndApi: 'http://localhost:3000/api',
   theMovieDbUrl: 'https://api.themoviedb.org/3/movie',
+  theMovieDbPopularMovies: 'https://api.themoviedb.org/3/discover/movie',
   theMovieDbSearchUrl: 'https://api.themoviedb.org/3/search/movie',
   theMovieDbApiKey: 'd6f744a7597256818a0774964bea7379',
   language: 'en-US'
