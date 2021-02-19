@@ -11,7 +11,7 @@ I will improve the project over time.
 ## The break down
 - The Project is in two parts for separation of concerns, the Angular client and the nodejs backend
 - The 1st thing to do was to request an API key from [The MovieDB API](https://developers.themoviedb.org/3/getting-started/introduction) to make sure I have access to fetch the movie list.
-- Before fetching the movie list, create a navbar with a search-box, login-button, contact-us button, home button.
+- Before fetching the movie list create a login-button, contact-us button, logOut-button, favorites-buttons and home button.
 - Fecth the movie list and display it to the landing page, 9 items per page.
 - Create a modal for showing movie details
 - Create a separate contact-us page to display my details.
