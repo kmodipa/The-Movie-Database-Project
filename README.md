@@ -3,7 +3,7 @@ The-Movie-Database-Project
 
 ## Example screenshort
 
-![Screenshot 2021-02-16 at 09 18 26](https://user-images.githubusercontent.com/18338191/108030840-88c4a400-7038-11eb-9c24-eb40f2fda288.png)
+<img width="1679" alt="Screenshot 2021-02-19 at 22 42 11" src="https://user-images.githubusercontent.com/18338191/108559403-f7895200-7303-11eb-851b-1accb4b1908b.png">
 
 This is a simple web application that makes use of the [The MovieDB API](https://developers.themoviedb.org/3/getting-started/introduction) to get and display movies. No complicated functionality here.
 I will improve the project over time.
