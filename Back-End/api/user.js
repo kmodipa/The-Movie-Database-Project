@@ -46,7 +46,7 @@ router.post("/register", (req, res) => {
             } else {
                 res.status(401).json({
                     message: "Email already in use",
-                    status:res.statusCode})
+                    status: res.statusCode})
             }
         })
     }

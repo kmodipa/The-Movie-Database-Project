@@ -32,6 +32,7 @@ app.use(bodyParse.json());
 
 /* api routes */
 app.use("/api/user", require("./api/user"));
+app.use("/api/movie", require("./api/movie"));
 
 app.get("/*", (req,res) => {
     res.sendFile(path.join(__dirname, "public/index.html"))
