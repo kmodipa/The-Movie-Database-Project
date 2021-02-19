@@ -21,4 +21,11 @@ export class MovieFavoritesComponent implements OnInit {
     this.rawMovies.results = new Array<MovieModel>();
   }
 
+  fetchMovieDetails(): void {
+
+  }
+
+  fetchFavoriteMoviesIds(): void {
+
+  }
 }

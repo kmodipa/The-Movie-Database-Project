@@ -11,20 +11,20 @@ import {ProfileResponseModel} from '../../Core/Models/ProfileResponseModel';
 })
 export class AccountsServiceService {
 
-  accountsEndpoint = `${environment.accountsApi}/`;
+  backEndApi = `${environment.backEndApi}/user/`;
 
   constructor(private httpClient: HttpClient) { }
 
   Login(userModel: UserModel): Observable<UserAuthModel> {
-    return this.httpClient.post<UserAuthModel>(`${this.accountsEndpoint}login`, userModel);
+    return this.httpClient.post<UserAuthModel>(`${this.backEndApi}login`, userModel);
   }
 
   register(userModel: UserModel): Observable<UserAuthModel> {
-    return this.httpClient.post<UserAuthModel>(`${this.accountsEndpoint}register`, userModel);
+    return this.httpClient.post<UserAuthModel>(`${this.backEndApi}register`, userModel);
   }
 
   getUserProfile(bearerToken: string): Observable<ProfileResponseModel> {
-    return this.httpClient.get<ProfileResponseModel>(`${this.accountsEndpoint}profile`, {
+    return this.httpClient.get<ProfileResponseModel>(`${this.backEndApi}profile`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + bearerToken,
