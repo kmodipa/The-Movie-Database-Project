@@ -5,6 +5,7 @@ import { RawMovieModel } from 'src/app/Core/Models/RawMovieModel';
 import {environment} from '../../../environments/environment';
 import {FavoriteMoviesResponseModel} from '../../Core/Models/FavoriteMoviesResponseModel';
 import {FavoriteMovieRequestModel} from '../../Core/Models/FavoriteMovieRequestModel';
+import {MovieModel} from '../../Core/Models/MovieModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,8 @@ export class MoviesServiceService {
     return this.httpClient.get<string>(`${this.moviesSearchEndpoint}?api_key=${this.apiKey}&language=${this.language}&query=${query}`);
   }
 
-  GetMovieDetails(id: number): Observable<RawMovieModel> {
-    return this.httpClient.get<RawMovieModel>(`${this.moviesEndpoint}${id}?api_key=${this.apiKey}&language=${this.language}`);
+  GetMovieDetails(id: number): Observable<MovieModel> {
+    return this.httpClient.get<MovieModel>(`${this.moviesEndpoint}${id}?api_key=${this.apiKey}&language=${this.language}`);
   }
 
   GetFavoriteMoviesFromOwnDB(userId: number): Observable<FavoriteMoviesResponseModel> {

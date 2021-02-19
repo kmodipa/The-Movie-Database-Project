@@ -1,31 +1,32 @@
 @import "src/assets/styles/generic";
 @import "src/assets/styles/page-size-mixin";
 
+.main-container {
+  .no-movies {
+    text-align: center;
+
+    img {
+      height: 17rem;
+      width: 17rem;
+    }
+  }
+}
+
+
 .cards {
     display: grid;
     grid-gap: 2rem;
-  
+
     @include breakpoints(mobile) {
       grid-template-columns: minmax(300px, 1fr);
     }
-  
+
     @include breakpoints(laptop) {
       grid-template-columns: repeat(3, 1fr);
     }
-  
+
     @include breakpoints(desktop) {
       grid-template-columns: repeat(5, 1fr);
     }
   }
-  
-  nav {
-    ul {
-      padding-left: 0;
-  
-      li {
-        display: inline-block;
-        padding: 1rem;
-  
-      }
-    }
-  }
+

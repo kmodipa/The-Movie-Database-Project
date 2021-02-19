@@ -8,6 +8,7 @@ router.post("/upsert", (req, res) => {
     const { userid, movieid } = req.body;
     console.log(userid, movieid);
     let user_id = userid; /* for table column */
+    let movie_id = movieid;
 
     if (userid == undefined || userid == '' ||
         movieid == undefined || movieid == '') {
@@ -18,8 +19,9 @@ router.post("/upsert", (req, res) => {
     } else {
         /* check the movie whether it already upserted or not in database using model */
         MovieModel.findOne({
-            attributes: ["movie_id"],
+            attributes: ["movie_id", "user_id"],
             where: {
+                movie_id,
                 user_id
             }
         }).then((value) => {

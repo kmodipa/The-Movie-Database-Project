@@ -9,7 +9,8 @@
             <i class="fa fa-calendar" aria-hidden="true">&nbsp;</i> <strong>{{movie.release_date}}</strong><br>
         </div>
         <div class="card-buttons-group">
-            <button (click)="addToFavourites(movie.id)" class="button add-to-favourites"><i class="fa fa-thumbs-o-up" aria-hidden="true">&nbsp;</i> Like</button>
+            <button *ngIf="!movieIsLiked" (click)="addToFavourites(movie.id)" class="button add-to-favourites"><i class="fa fa-thumbs-o-up" aria-hidden="true">&nbsp;</i> Like</button>
+            <button *ngIf="movieIsLiked" (click)="removeFromFavourites(movie)" class="button add-to-favourites"><i class="fa fa-thumbs-o-down" aria-hidden="true">&nbsp;</i> UnLike</button>
         </div>
     </div>
 </div>
