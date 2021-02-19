@@ -25,8 +25,8 @@ export class MoviesServiceService {
     return this.httpClient.get<RawMovieModel>(`${this.theMovieDbPopularMovies}?api_key=${this.apiKey}&language=${this.language}`);
   }
 
-  SearchMovies(query: string): Observable<string> {
-    return this.httpClient.get<string>(`${this.moviesSearchEndpoint}?api_key=${this.apiKey}&language=${this.language}&query=${query}`);
+  SearchMovies(query: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.moviesSearchEndpoint}?api_key=${this.apiKey}&language=${this.language}&query=${query}`);
   }
 
   GetMovieDetails(id: number): Observable<MovieModel> {

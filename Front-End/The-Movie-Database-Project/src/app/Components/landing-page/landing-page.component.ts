@@ -3,6 +3,8 @@ import { RawMovieModel } from 'src/app/Core/Models/RawMovieModel';
 import { MoviesServiceService } from 'src/app/Services/MoviesService/movies-service.service';
 import {MovieModel} from '../../Core/Models/MovieModel';
 import {FavoriteMoviesResponseModel} from '../../Core/Models/FavoriteMoviesResponseModel';
+import {SearchServiceService} from '../../Services/SearchService/search-service.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -16,13 +18,17 @@ export class LandingPageComponent implements OnInit {
   favouriteMoviesIds: FavoriteMoviesResponseModel;
   isLiked: boolean;
   movieIds = [];
+  searchValue: string;
 
   /* pagination */
   config: any;
   term: any;
   removePagination = true;
 
-  constructor(private moviesService: MoviesServiceService) { }
+  subscription: Subscription;
+
+  constructor(private moviesService: MoviesServiceService,
+              private searchService: SearchServiceService) { }
 
   ngOnInit(): void {
     this.movies = new Array<MovieModel>();
@@ -34,6 +40,36 @@ export class LandingPageComponent implements OnInit {
     this.isLiked = false;
     this.fetchFavoriteMoviesIds();
     this.fetchPopularMovies();
+    this.fetchSearchResults();
+  }
+
+  searchMovies(value: string): void {
+    this.moviesService.SearchMovies(value).subscribe( res => {
+      this.rawMovies = res;
+      this.movies = this.rawMovies.results;
+
+      this.config = {
+        itemsPerPage: 9,
+        currentPage: 1,
+        totalItems: this.movies.length
+      };
+
+      if (this.movies.length >= 5) {
+        this.removePagination = false;
+      }
+    });
+  }
+
+  fetchSearchResults(): void {
+    this.subscription = this.searchService.getMessage().subscribe(x => {
+      if (x && x.text !== '') {
+        this.term = x.text;
+        this.removePagination = true;
+      } else {
+        this.removePagination = false;
+        this.term = undefined;
+      }
+    });
   }
 
   fetchPopularMovies(): void {

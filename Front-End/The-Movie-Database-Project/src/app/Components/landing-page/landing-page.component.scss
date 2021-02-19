@@ -30,3 +30,60 @@
     }
   }
 
+
+/* Search box styling */
+::placeholder {
+  color: $clr-primary;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $clr-primary;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $clr-primary;
+}
+
+.search-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .search {
+    border: none;
+    border-bottom: 1px solid $clr-primary;
+    background: transparent;
+    height: 2.5rem;
+    font-size: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-top: .5rem;
+    color: $clr-primary;
+  }
+
+  .search:focus {
+    outline: none;
+  }
+
+  .search-button {
+    border: none;
+    border-bottom: 1px solid $clr-primary;
+    background: transparent;
+    height: 2.5rem;
+    color: $clr-primary;
+    padding-right: 1rem;
+    margin-top: .5rem;
+  }
+
+  .search-button:focus {
+    outline: none;
+  }
+
+  .search-button:hover {
+    cursor: pointer;
+  }
+}
+
