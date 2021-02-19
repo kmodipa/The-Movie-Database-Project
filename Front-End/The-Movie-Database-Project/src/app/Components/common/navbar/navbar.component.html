@@ -13,7 +13,7 @@
 
     <nav>
       <ul>
-        <li>
+        <li *ngIf="isLoggedIn">
           <button type="button" (click)="goToFavorites()" class="button" >Favorites</button>
         </li>
         <li>

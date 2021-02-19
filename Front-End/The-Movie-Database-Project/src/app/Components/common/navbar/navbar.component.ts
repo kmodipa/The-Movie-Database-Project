@@ -40,6 +40,7 @@ export class NavbarComponent implements OnInit {
     console.log('logout');
     this.isLoggedIn = false;
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUserId');
   }
 
   goToContact(): void {
