@@ -6,20 +6,23 @@
 
     <input type="checkbox" class="nav-toggle" id="nav-toggle">
 
-    <div class="search-box" [class.hide-search-box]="activatedRoute.snapshot.url[0].path !== 'landing-page'">
-      <input type="search" [(ngModel)]="searchValue" placeholder="Search" aria-label="Search" class="search">
-      <button class="search-button" (click)="search(searchValue)" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-    </div>
+<!--    <div class="search-box" [class.hide-search-box]="activatedRoute.snapshot.url[0].path !== 'landing-page'">-->
+<!--      <input type="search" [(ngModel)]="searchValue" placeholder="Search" aria-label="Search" class="search">-->
+<!--      <button class="search-button" (click)="search(searchValue)" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>-->
+<!--    </div>-->
 
     <nav>
       <ul>
-        <li>
+        <li *ngIf="isLoggedIn">
           <button type="button" (click)="goToFavorites()" class="button" >Favorites</button>
         </li>
         <li>
           <button type="button" (click)="goToContact()" class="button" >Contact-Us</button>
         </li>
-        <li *ngIf="isLogIn">
+        <li *ngIf="isLoggedIn">
+          <button type="button" (click)="logOut()" class="button" >logOut - {{user}}</button>
+        </li>
+        <li *ngIf="!isLoggedIn">
           <button type="button" (click)="modalService.open('login')" class="button" >login</button>
         </li>
       </ul>

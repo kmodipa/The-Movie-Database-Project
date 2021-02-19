@@ -118,58 +118,6 @@ nav a {
   display: none;
 }
 
-/* Search box styling */
-::placeholder {
-  color: $clr-white;
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: $clr-white;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: $clr-white;
-}
-
-.search-box {
-  .search {
-    border: none;
-    border-bottom: 1px solid $clr-white;
-    background: transparent;
-    height: 2.5rem;
-    font-size: 1rem;
-    width: 100%;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-    margin-top: .5rem;
-    color: $clr-white;
-  }
-
-  .search:focus {
-    outline: none;
-  }
-
-  .search-button {
-    border: none;
-    border-bottom: 1px solid $clr-white;
-    background: transparent;
-    height: 2.5rem;
-    color: $clr-white;
-    padding-right: 1rem;
-    margin-top: .5rem;
-  }
-
-  .search-button:focus {
-    outline: none;
-  }
-
-  .search-button:hover {
-    cursor: pointer;
-  }
-}
-
 /* Bigger Screens */
 
 @media screen and (min-width: 800px) {

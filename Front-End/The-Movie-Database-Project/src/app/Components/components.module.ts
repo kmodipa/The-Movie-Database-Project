@@ -11,6 +11,7 @@ import { MovieCardComponent } from './landing-page/movie-card/movie-card.compone
 import {ModalModule} from './_modal';
 import { RegisterComponent } from './accounts/register/register.component';
 import { MovieFavoritesComponent } from './movie-favorites/movie-favorites.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 /* custom components */
 export const components = [
@@ -31,7 +32,8 @@ export const components = [
         RouterModule,
         FormsModule,
         ModalModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxPaginationModule
     ], exports: [components]
 })
 export class ComponentsModule {

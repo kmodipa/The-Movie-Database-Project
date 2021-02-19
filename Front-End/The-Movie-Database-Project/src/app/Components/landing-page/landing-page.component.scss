@@ -1,31 +1,89 @@
 @import "src/assets/styles/generic";
 @import "src/assets/styles/page-size-mixin";
 
+.main-container {
+  .no-movies {
+    text-align: center;
+
+    img {
+      height: 17rem;
+      width: 17rem;
+    }
+  }
+}
+
+
 .cards {
     display: grid;
     grid-gap: 2rem;
-  
+
     @include breakpoints(mobile) {
       grid-template-columns: minmax(300px, 1fr);
     }
-  
+
     @include breakpoints(laptop) {
       grid-template-columns: repeat(3, 1fr);
     }
-  
+
     @include breakpoints(desktop) {
       grid-template-columns: repeat(5, 1fr);
     }
   }
-  
-  nav {
-    ul {
-      padding-left: 0;
-  
-      li {
-        display: inline-block;
-        padding: 1rem;
-  
-      }
-    }
+
+
+/* Search box styling */
+::placeholder {
+  color: $clr-primary;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $clr-primary;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $clr-primary;
+}
+
+.search-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .search {
+    border: none;
+    border-bottom: 1px solid $clr-primary;
+    background: transparent;
+    height: 2.5rem;
+    font-size: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-top: .5rem;
+    color: $clr-primary;
   }
+
+  .search:focus {
+    outline: none;
+  }
+
+  .search-button {
+    border: none;
+    border-bottom: 1px solid $clr-primary;
+    background: transparent;
+    height: 2.5rem;
+    color: $clr-primary;
+    padding-right: 1rem;
+    margin-top: .5rem;
+  }
+
+  .search-button:focus {
+    outline: none;
+  }
+
+  .search-button:hover {
+    cursor: pointer;
+  }
+}
+

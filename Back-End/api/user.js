@@ -46,7 +46,7 @@ router.post("/register", (req, res) => {
             } else {
                 res.status(401).json({
                     message: "Email already in use",
-                    status:res.statusCode})
+                    status: res.statusCode})
             }
         })
     }
@@ -117,7 +117,7 @@ router.post("/login", function (req, res) {
 router.get("/profile", function (req, res) {
     const authHeader = req.headers["authorization"];
     if (authHeader) {
-        const token = authHeader.substr("Bearer".length + 1);
+        const token = authHeader.substr("Bearer".length + 1).replace(/['"]+/g, '');
 
         webToken.verify(token, process.env.secret_key, (err, user) => {
             if (user) {

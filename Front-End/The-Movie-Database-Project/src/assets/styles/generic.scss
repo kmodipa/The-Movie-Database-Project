@@ -101,7 +101,7 @@ $clr-seconday-hover: #96f3ff;
         padding-bottom: .5rem;
       }
 
-      input[type=text], select {
+      input[type=text],input[type=password], select {
         color: $clr-page-general-text-color;
         font-size: 1rem;
         width: 20rem;

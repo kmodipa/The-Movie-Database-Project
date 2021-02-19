@@ -1,10 +1,20 @@
 <app-navbar></app-navbar>
 <div class="main-container">
   <h2>Favorite Movies</h2>
-  <div class="cards">
-    <div *ngFor="let movie of movies; let i = index">
-      <app-movie-card [movie]="movie" [movieIndex] = "i"></app-movie-card>
+  <div class="cards" *ngIf="movies.length > 0">
+    <div *ngFor="let movie of movies | paginate: config ; let i = index">
+      <app-movie-card [movie]="movie" [movieIsLiked]="checkIfMovieIsLiked(movie.id)" [movieIndex] = "i"></app-movie-card>
     </div>
+  </div>
 
+  <div class="pagination">
+    <div class="TM.Pagination" *ngIf="movies.length > 0  && removePagination === false">
+      <pagination-controls style="text-align: center" (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+  </div>
+
+  <div class="no-movies" *ngIf="movies.length === 0">
+    <img src="../../../assets/icons/empty-box.jpg" alt="no-movie">
+    <h1>Sorry You do not have any favorite movies</h1>
   </div>
 </div>

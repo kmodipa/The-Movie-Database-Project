@@ -24,17 +24,29 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initiateForm();
+    this.userModel = new UserModel();
   }
 
   initiateForm(): void {
     this.registerForm = this.formBuilder.group({
       username: '',
+      email: '',
       password: ''
     });
   }
 
   register(): void {
+    this.accountsService.register(this.userModel).subscribe(res => {
+      console.log(res);
+      if (res.status === 200) {
+        window.location.reload();
+      } else {
 
+      }
+
+    }, error => {
+      console.log(error);
+    });
   }
 
   openLogin(): void {
