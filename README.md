@@ -39,7 +39,7 @@ I will improve the project over time.
 - Now open your browser and go to `http://localhost:4200/` to view.
 - That's all 💁.
 
-#### (Front-End)
+#### (Back-End)
 
 - Navigate to the back-end directory`The-Movie-Database-Project/Back-End/`.
 - Also don't forget to run `npm install` to install the packages 📦  that are required to run the application.
