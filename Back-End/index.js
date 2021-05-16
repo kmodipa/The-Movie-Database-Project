@@ -4,6 +4,9 @@ const dbConnection = require("./connection/db");
 const path = require("path");
 const cors = require("cors");
 
+const hostname = '0.0.0.0';
+const port = 3000;
+
 /* DB Connection */
 dbConnection.authenticate()
     .then(() => {
@@ -38,4 +41,6 @@ app.get("/*", (req,res) => {
     res.sendFile(path.join(__dirname, "public/index.html"))
 });
 
-app.listen(process.eventNames.port || 3000, () => console.log("Server is UP"));
+app.listen(process.eventNames.port || port, hostname, () => {
+	console.log('Server is UP running at http://' + hostname + ':' + port);
+});

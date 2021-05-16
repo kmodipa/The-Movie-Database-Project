@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.11.13",
     "bcrypt": "*",
     "body-parser": "*",
     "cors": "*",
@@ -15,6 +16,7 @@
     "express": "*",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "*",
+    "pg": "^8.5.1",
     "sequelize": "*",
     "sequelize-cli": "^6.2.0"
   },
