@@ -7,7 +7,7 @@ import {MovieFavoritesComponent} from './Components/movie-favorites/movie-favori
 const routes: Routes = [
   {path: 'landing-page', component: LandingPageComponent},
   {path: 'favorites', component: MovieFavoritesComponent},
-  {path: 'contact-us', component: ContactUsComponent},
+  {path: 'contact-me', component: ContactUsComponent},
   {path: '', redirectTo: 'landing-page', pathMatch: 'full'}
 ];
 

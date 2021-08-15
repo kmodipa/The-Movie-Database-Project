@@ -75,7 +75,7 @@ router.post("/login", function (req, res) {
         }).then((value) => {
             if (value === null) { /* If email is not registered */
                 res.status(401).json({
-                    message: "Email is not Registered Please SignUp",
+                    message: "Email is not Registered, Please Register an Account.",
                     status: res.statusCode,
                     token: ''
                 });
@@ -93,7 +93,7 @@ router.post("/login", function (req, res) {
                 bcrypt.compare(password, dbPassword, function (err, result) {
                     if (result) { /* Success */
                         const token = webToken.sign(userDetail, process.env.secret_key, {
-                            expiresIn: "60s",
+                            expiresIn: "6h",
                         });
                         res.status(200).json({
                             message: "Logged In successfully",

@@ -11,7 +11,7 @@ export class ToasterNotificationServiceService {
   Success(message: string): void {
     this.notification.success('Success', message, {
       position: ['bottom', 'right'],
-      timeOut: 2000,
+      timeOut: 3000,
       animate: 'fade',
       showProgressBar: true
     });
@@ -20,7 +20,7 @@ export class ToasterNotificationServiceService {
   Failure(message: string): void {
     this.notification.error('Error', message, {
       position: ['bottom', 'right'],
-      timeOut: 2000,
+      timeOut: 3000,
       animate: 'fade',
       showProgressBar: true
     });
@@ -29,7 +29,7 @@ export class ToasterNotificationServiceService {
   Alert(message: string): void {
     this.notification.alert('Alert', message, {
       position: ['bottom', 'right'],
-      timeOut: 2000,
+      timeOut: 3000,
       animate: 'fade',
       showProgressBar: true
     });

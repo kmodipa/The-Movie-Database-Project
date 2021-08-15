@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ModalService} from '../../_modal';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserModel} from '../../../Core/Models/UserModel';
+import {ToasterNotificationServiceService} from '../../../Services/ToasterNotificationService/toaster-notification-service.service';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
               private router: Router,
               public activatedRoute: ActivatedRoute,
               public modalService: ModalService,
-              public formBuilder: FormBuilder) { }
+              public formBuilder: FormBuilder,
+              private notificationService: ToasterNotificationServiceService) { }
 
   ngOnInit(): void {
     this.initiateForm();
@@ -42,15 +44,18 @@ export class RegisterComponent implements OnInit {
     this.password.markAsTouched();
 
     if (this.registerForm.valid) {
+      this.userModel.username = this.userModel.email;
       this.accountsService.register(this.userModel).subscribe(res => {
         console.log(res);
         if (res.status === 200) {
+          this.notificationService.Success('Login Successful');
           window.location.reload();
         } else {
-
+          this.notificationService.Failure('Registration failed for some reason');
         }
 
       }, error => {
+        this.notificationService.Failure(error.error.message);
         console.log(error);
       });
     }
