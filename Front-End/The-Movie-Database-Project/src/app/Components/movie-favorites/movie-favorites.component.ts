@@ -3,6 +3,7 @@ import {MovieModel} from '../../Core/Models/MovieModel';
 import {RawMovieModel} from '../../Core/Models/RawMovieModel';
 import {MoviesServiceService} from '../../Services/MoviesService/movies-service.service';
 import {FavoriteMoviesResponseModel} from '../../Core/Models/FavoriteMoviesResponseModel';
+import {ToasterNotificationServiceService} from '../../Services/ToasterNotificationService/toaster-notification-service.service';
 
 @Component({
   selector: 'app-movie-favorites',
@@ -15,13 +16,15 @@ export class MovieFavoritesComponent implements OnInit {
   rawMovies: RawMovieModel;
   favouriteMoviesIds: FavoriteMoviesResponseModel;
   movieIds = [];
+  unlikedMovieIndex: number;
 
   /* pagination */
   config: any;
   term: any;
   removePagination = true;
 
-  constructor(private moviesService: MoviesServiceService) { }
+  constructor(private moviesService: MoviesServiceService,
+              private notificationService: ToasterNotificationServiceService) { }
 
   ngOnInit(): void {
     this.movies = new Array<MovieModel>();
@@ -69,6 +72,18 @@ export class MovieFavoritesComponent implements OnInit {
       return true;
     } else {
       return false;
+    }
+  }
+
+  collectUnlikedMovie(value: any): void {
+    this.unlikedMovieIndex = value;
+
+    if (this.movies.length > 0) {
+      this.movies.splice(this.unlikedMovieIndex, 1);
+
+      if (this.movies.length === 0) {
+        this.notificationService.Success('Your Favourites list has been cleared');
+      }
     }
   }
 

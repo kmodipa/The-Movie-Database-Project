@@ -3,7 +3,12 @@
   <h2>Favorite Movies</h2>
   <div class="cards" *ngIf="movies.length > 0">
     <div *ngFor="let movie of movies | paginate: config ; let i = index">
-      <app-movie-card [movie]="movie" [movieIsLiked]="checkIfMovieIsLiked(movie.id)" [movieIndex] = "i"></app-movie-card>
+      <app-movie-card
+        [movie]="movie"
+        [movieIsLiked]="checkIfMovieIsLiked(movie.id)"
+        [movieIndex] = "i"
+        (unlikedMovieIndex)="collectUnlikedMovie($event)"
+      ></app-movie-card>
     </div>
   </div>
 

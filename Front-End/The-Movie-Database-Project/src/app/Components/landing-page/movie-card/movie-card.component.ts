@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import {ModalService} from '../../_modal';
 import {MovieModel} from '../../../Core/Models/MovieModel';
@@ -16,6 +16,7 @@ export class MovieCardComponent implements OnInit {
 @Input() movie: MovieModel;
 @Input() movieIsLiked: boolean;
 @Input() movieIndex: number;
+@Output() unlikedMovieIndex: EventEmitter<number> = new EventEmitter<number>();
 
   favouriteMoviesIds: FavoriteMoviesResponseModel;
 
@@ -38,8 +39,13 @@ export class MovieCardComponent implements OnInit {
 
       this.movieService.UpsertFavoriteMovie(favouriteMovieModel).subscribe( res => {
         console.log(res);
-        console.log(res.status);
-        window.location.reload();
+        if (res.status === 200) {
+          this.movieIsLiked = true;
+        } else {
+          this.movieIsLiked = false;
+        }
+        // console.log(res.status);
+        // window.location.reload();
       }, error => {
         console.log(error);
       });
@@ -54,8 +60,12 @@ export class MovieCardComponent implements OnInit {
     movieRequestModel.userid = +localStorage.getItem('currentUserId');
     movieRequestModel.movieid = movie.id;
     this.movieService.DeleteFavoriteMovie(movieRequestModel).subscribe( res => {
-      console.log(res);
-      window.location.reload();
+      if (res.status === 200) {
+        this.movieIsLiked = false;
+        this.unlikedMovieIndex.emit(this.movieIndex);
+      } else {
+        this.movieIsLiked = true;
+      }
     });
   }
 
