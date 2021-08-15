@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
   }
 
   goToContact(): void {
-    this.router.navigate(['contact-us']);
+    this.router.navigate(['contact-me']);
   }
 
   goToFavorites(): void {

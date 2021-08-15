@@ -59,13 +59,12 @@ export class LoginComponent implements OnInit {
           // localStorage.setItem('currentUserId', res.);
           this.getProfile();
           this.notificationService.Success('Login Successful');
-          window.location.reload(); /* I know it's illegal */
         } else {
-          this.notificationService.Failure('Login failed, please try again.');
+          this.notificationService.Failure('There was a problem logging in. Check your email and password or create an account.');
         }
       }, error => {
-        console.log(error);
-        this.notificationService.Failure('Login failed, please try again.');
+        console.log(error.error.message);
+        this.notificationService.Failure(error.error.message);
       });
     }
   }
@@ -76,6 +75,8 @@ export class LoginComponent implements OnInit {
       console.log(res);
       localStorage.setItem('currentUser', res.data.name);
       localStorage.setItem('currentUserId', res.data.id.toString());
+      // window.location.reload(); /* I know it's illegal */
+      this.router.navigate(['favorites']);
     }, error => {
       console.log(error);
     });
