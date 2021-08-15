@@ -5,6 +5,7 @@ $clr-gray: grey;
 $clr-page-general-text-color: #8E879D;
 $clr-hr-line: rgba(0,0,0,.1);
 $clr-seconday-hover: #96f3ff;
+$clr-red-delete: #dc3545;
 
 .main-container {
     margin: 79px auto;
@@ -41,6 +42,13 @@ $clr-seconday-hover: #96f3ff;
 
 .button::-moz-focus-inner {
     border: 0;
+}
+
+.error-messages {
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  color: $clr-red-delete;
+  font-size: .8rem;
 }
 
 /* Modal Header */
