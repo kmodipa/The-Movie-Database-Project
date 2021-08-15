@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountsServiceService} from '../../../Services/AccountsService/accounts-service.service';
 import {UserModel} from '../../../Core/Models/UserModel';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ModalService} from '../../_modal';
 import {ToasterNotificationServiceService} from '../../../Services/ToasterNotificationService/toaster-notification-service.service';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   isLoggedIn: boolean;
   userModel: UserModel;
-  stageForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor(private accountsService: AccountsServiceService,
               private router: Router,
@@ -37,29 +37,37 @@ export class LoginComponent implements OnInit {
   }
 
   initiateForm(): void {
-    this.stageForm = this.formBuilder.group({
-      email: '',
-      password: ''
+    this.loginForm = this.formBuilder.group({
+      email: ['',
+        [Validators.required,
+          Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   login(): void {
-    this.accountsService.Login(this.userModel).subscribe(res => {
-      console.log(res);
-      if (res.status === 200) {
-        this.isLoggedIn = true;
-        localStorage.setItem('userToken', JSON.stringify(res.token));
-        // localStorage.setItem('currentUserId', res.);
-        this.getProfile();
-        this.notificationService.Success('Login Successful');
-        window.location.reload(); /* I know it's illegal */
-      } else {
+    /* -Mark form as touched- */
+    this.email.markAsTouched();
+    this.password.markAsTouched();
+
+    if (this.loginForm.valid) {
+      this.accountsService.Login(this.userModel).subscribe(res => {
+        console.log(res);
+        if (res.status === 200) {
+          this.isLoggedIn = true;
+          localStorage.setItem('userToken', JSON.stringify(res.token));
+          // localStorage.setItem('currentUserId', res.);
+          this.getProfile();
+          this.notificationService.Success('Login Successful');
+          window.location.reload(); /* I know it's illegal */
+        } else {
+          this.notificationService.Failure('Login failed, please try again.');
+        }
+      }, error => {
+        console.log(error);
         this.notificationService.Failure('Login failed, please try again.');
-      }
-    }, error => {
-      console.log(error);
-      this.notificationService.Failure('Login failed, please try again.');
-    });
+      });
+    }
   }
 
   getProfile(): void {
@@ -78,4 +86,12 @@ export class LoginComponent implements OnInit {
     this.modalService.open('register');
   }
 
+  /* -LoginForm Getters- */
+  get email(): AbstractControl {
+    return this.loginForm.get('email');
+  }
+
+  get password(): AbstractControl {
+    return this.loginForm.get('password');
+  }
 }
