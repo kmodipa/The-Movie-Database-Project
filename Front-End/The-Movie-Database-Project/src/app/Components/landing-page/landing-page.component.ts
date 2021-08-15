@@ -49,7 +49,7 @@ export class LandingPageComponent implements OnInit {
       this.movies = this.rawMovies.results;
 
       this.config = {
-        itemsPerPage: 9,
+        itemsPerPage: 10,
         currentPage: 1,
         totalItems: this.movies.length
       };
@@ -79,7 +79,7 @@ export class LandingPageComponent implements OnInit {
       this.movies = this.rawMovies.results;
 
       this.config = {
-        itemsPerPage: 9,
+        itemsPerPage: 10,
         currentPage: 1,
         totalItems: this.movies.length
       };
