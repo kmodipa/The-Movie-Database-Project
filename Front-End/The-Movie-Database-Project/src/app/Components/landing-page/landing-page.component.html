@@ -1,9 +1,11 @@
 <app-navbar></app-navbar>
 <div class="main-container">
-  <div class="search-box" >
-    <input type="search" [(ngModel)]="searchValue" placeholder="Search" aria-label="Search" class="search">
-    <button class="search-button" (click)="searchMovies(searchValue)" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-  </div>
+  <form (ngSubmit)="searchMovies()" [formGroup]="searchForm">
+    <div class="search-box" >
+      <input type="search"  placeholder="Search" aria-label="Search" class="search" formControlName="value">
+      <button class="search-button" (click)="searchMovies()" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+  </form>
 
     <h2>Popular Movies</h2>
     <div class="cards" *ngIf="movies.length > 0">

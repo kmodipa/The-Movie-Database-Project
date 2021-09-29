@@ -5,10 +5,10 @@ import { LandingPageComponent } from './Components/landing-page/landing-page.com
 import {MovieFavoritesComponent} from './Components/movie-favorites/movie-favorites.component';
 
 const routes: Routes = [
-  {path: 'landing-page', component: LandingPageComponent},
+  {path: 'home', component: LandingPageComponent},
   {path: 'favorites', component: MovieFavoritesComponent},
   {path: 'contact-me', component: ContactUsComponent},
-  {path: '', redirectTo: 'landing-page', pathMatch: 'full'}
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({

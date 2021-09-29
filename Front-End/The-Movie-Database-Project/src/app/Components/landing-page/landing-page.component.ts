@@ -5,6 +5,7 @@ import {MovieModel} from '../../Core/Models/MovieModel';
 import {FavoriteMoviesResponseModel} from '../../Core/Models/FavoriteMoviesResponseModel';
 import {SearchServiceService} from '../../Services/SearchService/search-service.service';
 import {Subscription} from 'rxjs';
+import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-landing-page',
@@ -26,9 +27,11 @@ export class LandingPageComponent implements OnInit {
   removePagination = true;
 
   subscription: Subscription;
+  searchForm: FormGroup;
 
   constructor(private moviesService: MoviesServiceService,
-              private searchService: SearchServiceService) { }
+              private searchService: SearchServiceService,
+              public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.movies = new Array<MovieModel>();
@@ -37,14 +40,18 @@ export class LandingPageComponent implements OnInit {
     this.favouriteMoviesIds = new FavoriteMoviesResponseModel();
     this.favouriteMoviesIds.data = [];
 
+    this.searchForm = this.formBuilder.group({
+      value: ''
+    });
+
     this.isLiked = false;
     this.fetchFavoriteMoviesIds();
     this.fetchPopularMovies();
     this.fetchSearchResults();
   }
 
-  searchMovies(value: string): void {
-    this.moviesService.SearchMovies(value).subscribe( res => {
+  searchMovies(): void {
+    this.moviesService.SearchMovies(this.getSearchValue.value).subscribe( res => {
       this.rawMovies = res;
       this.movies = this.rawMovies.results;
 
@@ -120,6 +127,10 @@ export class LandingPageComponent implements OnInit {
 
   pageChanged(event): void {
     this.config.currentPage = event;
+  }
+
+  get getSearchValue(): AbstractControl {
+    return this.searchForm.get('value');
   }
 
 }
